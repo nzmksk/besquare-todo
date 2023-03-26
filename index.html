@@ -43,14 +43,17 @@
           />
           <label for="idDueDate">Due Date</label>
           <input type="date" name="due-date" id="idDueDate" />
-          <label for="idLow">Low</label>
-          <input type="radio" id="idLow" name="priority" value="Low" />
-          <label for="idMedium">Medium</label>
-          <input type="radio" id="idMedium" name="priority" value="Medium" />
-          <label for="idHigh">High</label>
-          <input type="radio" id="idHigh" name="priority" value="High" />
-          <label for="idUrgent">Urgent</label>
-          <input type="radio" id="idUrgent" name="priority" value="Urgent" />
+          <fieldset>
+            <legend>Priority</legend>
+            <label for="idLow">Low</label>
+            <input type="radio" id="idLow" name="priority" value="Low" />
+            <label for="idMedium">Medium</label>
+            <input type="radio" id="idMedium" name="priority" value="Medium" />
+            <label for="idHigh">High</label>
+            <input type="radio" id="idHigh" name="priority" value="High" />
+            <label for="idUrgent">Urgent</label>
+            <input type="radio" id="idUrgent" name="priority" value="Urgent" />
+          </fieldset>
           <label for="idDescription">Notes</label>
           <textarea
             name="description"
