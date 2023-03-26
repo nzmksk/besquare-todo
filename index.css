@@ -39,6 +39,10 @@ input {
   width: 100%;
 }
 
+.required-field {
+  color: red;
+}
+
 main {
   background-color: cadetblue;
   display: flex;
@@ -55,7 +59,7 @@ nav {
   padding: 0 12px;
 }
 
-section {
+.main-section {
   background-color: darkgoldenrod;
   border-radius: 12px;
   flex-grow: 2.5;
@@ -66,13 +70,18 @@ section {
   position: relative;
 }
 
-section > input {
+.main-section > input {
   padding: 12px;
 }
 
-.check-list-button, .filter-button {
+.button-section {
+  background-color: beige;
+}
+
+.check-list-button,
+.filter-button {
   margin-top: 12px;
-  background-color: darkgoldenrod;
+  /* background-color: darkgoldenrod; */
   border: none;
   float: right;
   font-size: 24px;
@@ -86,6 +95,44 @@ section > input {
   position: absolute;
   right: 12px;
   width: 36px;
+}
+
+.todo-list-section {
+  margin-top: 56px;
+  margin-left: -12px;
+}
+
+ul {
+  padding-inline-start: 12px;
+}
+
+li {
+  list-style-type: none;
+}
+
+li:first-child .todo-item {
+  border-top: 1px solid #aaaaaa;
+}
+
+.todo-item {
+  /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border-bottom: 1px solid #aaaaaa;
+}
+
+.done-checkbox {
+  display: inline;
+  width: auto;
+}
+
+.todo-title {
+  display: inline;
+}
+
+.todo-item > button {
+  margin-left: auto;
 }
 
 aside {
