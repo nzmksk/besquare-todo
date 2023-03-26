@@ -9,24 +9,35 @@
     <link rel="stylesheet" href="index.css" />
     <title>What To Do?</title>
   </head>
-  <body>
+  <body onload="loadAllTasks()">
     <header>
       <h1>What To Do?</h1>
     </header>
     <div class="modal" id="idModal">
       <div class="modal-content">
-        <span class="close-button">&times;</span>
+        <span class="close-button" onclick="closeModal()">&times;</span>
         <form autocomplete="on">
-          <label for="idTaskList">Task List</label>
-          <input list="idTaskLists" name="task-list" id="idTaskList" required />
+          <label for="idTaskList"
+            >Task List <span class="required-field">*</span></label
+          >
+          <input
+            list="idTaskLists"
+            name="task-list"
+            id="idTaskList"
+            maxlength="32"
+            required
+          />
           <datalist id="idTaskLists">
             <option value="General" selected>General</option>
           </datalist>
-          <label for="idTitle">Task</label>
+          <label for="idTitle"
+            >Task <span class="required-field">*</span></label
+          >
           <input
             type="text"
             name="title"
             id="idTitle"
+            maxlength="32"
             placeholder="Add a task"
             required
           />
@@ -48,8 +59,10 @@
             rows="5"
             placeholder="Add note"
           ></textarea>
-          <button onclick="closeModal()">Cancel</button>
-          <button class="add-task-button" onclick="addTask()">Add</button>
+          <button type="button" onclick="closeModal()">Cancel</button>
+          <button type="button" class="add-task-button" onclick="addNewTask()">
+            Add
+          </button>
         </form>
       </div>
     </div>
@@ -57,17 +70,21 @@
       <nav>
         <h2><span>&#9776;</span> Lists</h2>
       </nav>
-      <section>
+      <section class="main-section">
         <h2>To-Do</h2>
         <input type="search" placeholder="Search" />
-        <button class="check-list-button">
-          <i class="fa-solid fa-list-check"></i>
-        </button>
-        <button class="filter-button">
-          <i class="fa-solid fa-filter"></i>
-        </button>
+        <section class="button-section">
+          <button class="check-list-button">
+            <i class="fa-solid fa-list-check"></i>
+          </button>
+          <button class="filter-button">
+            <i class="fa-solid fa-filter"></i>
+          </button>
+        </section>
         <button class="add-button" onclick="openModal()">+</button>
-        <div id="idRenderElement"></div>
+        <section class="todo-list-section">
+          <ul id="idTodoList"></ul>
+        </section>
       </section>
       <aside>
         <h2>Aside</h2>
