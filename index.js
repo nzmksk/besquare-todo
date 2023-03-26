@@ -32,12 +32,15 @@ function createTodoItem(taskObject) {
   todoDueDate.classList.add("todo-due-date");
 
   if (taskObject.dueDate) {
+    // Create calendar icon
     const calendarIcon = document.createElement("i");
     calendarIcon.classList.add("fa-solid", "fa-calendar-days");
 
+    // Create child span element
     const dueDateElement = document.createElement("span");
     dueDateElement.innerText = taskObject.dueDate;
 
+    // Create parent span with child span element
     const styleElement = document.createElement("span");
     styleElement.classList.add("due-date");
     styleElement.appendChild(calendarIcon);
@@ -75,6 +78,9 @@ function createTodoItem(taskObject) {
   // Create li element
   const listElement = document.createElement("li");
   listElement.classList.add("todo-item-list");
+  listElement.addEventListener("click", () => {
+    renderTaskDetails(taskObject);
+  });
   listElement.appendChild(todoItem);
 
   // Render todo item inside ul element of HTML document
@@ -85,16 +91,21 @@ function createTodoItem(taskObject) {
 function addNewTask() {
   const taskList = document.getElementById("idTaskList").value;
   const task = document.getElementById("idTitle").value;
+  if (!taskList || !task) {
+    alert("Task List and Task fields are required!");
+    return; // Exit the function if tasklist or task field is empty
+  }
+
   const deadline = document.getElementById("idDueDate").value;
+  const notes = document.getElementById("idDescription").value;
+
+  // Check which radio button is chosen
   const idPriority = Array.from(
     document.querySelectorAll('input[name="priority"]:checked')
   );
-  const urgency = idPriority[0]?.value || "";
-  const notes = document.getElementById("idDescription").value;
 
-  if (!taskList || !task) {
-    return;
-  }
+  // If idPriority[0] is undefined, return empty string
+  const urgency = idPriority[0]?.value || "";
 
   const taskObject = {
     id: crypto.randomUUID(),
@@ -113,10 +124,11 @@ function addNewTask() {
 }
 
 function deleteTask(taskObject) {
-  const index = taskArray.findIndex((todo) => todo.id === taskObject.id);
-  taskArray.splice(index, 1);
+  const index = taskArray.findIndex(todo => todo.id === taskObject.id);
+  taskArray.splice(index, 1); // Remove the todo item from the array
   localStorage.setItem("whattodo", JSON.stringify(taskArray));
 
+  // Delete the item's node from the HTML document
   const element = document.getElementsByClassName("todo-item-list")[index];
   element.remove();
 }
