@@ -111,11 +111,11 @@ function addNewTask() {
     id: crypto.randomUUID(),
     list: taskList,
     title: task,
+    dateCreated: new Date(),
     dueDate: deadline,
     priority: urgency,
     description: notes,
     isCompleted: false,
-    isDeleted: false,
   };
   taskArray.push(taskObject);
   createTodoItem(taskObject);
@@ -123,8 +123,10 @@ function addNewTask() {
   closeModal();
 }
 
+function renderTaskDetails(taskObject) {}
+
 function deleteTask(taskObject) {
-  const index = taskArray.findIndex(todo => todo.id === taskObject.id);
+  const index = taskArray.findIndex((todo) => todo.id === taskObject.id);
   taskArray.splice(index, 1); // Remove the todo item from the array
   localStorage.setItem("whattodo", JSON.stringify(taskArray));
 
