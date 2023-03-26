@@ -16,11 +16,11 @@
     <div class="modal" id="idModal">
       <div class="modal-content">
         <span class="close-button">&times;</span>
-        <form action="">
+        <form autocomplete="on">
           <label for="idTaskList">Task List</label>
-          <input list="idTaskLists" name="task-list" id="idTaskList" />
+          <input list="idTaskLists" name="task-list" id="idTaskList" required />
           <datalist id="idTaskLists">
-            <option value="General">General</option>
+            <option value="General" selected>General</option>
           </datalist>
           <label for="idTitle">Task</label>
           <input
@@ -28,6 +28,7 @@
             name="title"
             id="idTitle"
             placeholder="Add a task"
+            required
           />
           <label for="idDueDate">Due Date</label>
           <input type="date" name="due-date" id="idDueDate" />
@@ -46,10 +47,9 @@
             cols="30"
             rows="5"
             placeholder="Add note"
-          >
-          </textarea>
-          <button>Cancel</button>
-          <button>Add</button>
+          ></textarea>
+          <button onclick="closeModal()">Cancel</button>
+          <button class="add-task-button" onclick="addTask()">Add</button>
         </form>
       </div>
     </div>
@@ -67,12 +67,12 @@
           <i class="fa-solid fa-filter"></i>
         </button>
         <button class="add-button" onclick="openModal()">+</button>
+        <div id="idRenderElement"></div>
       </section>
       <aside>
         <h2>Aside</h2>
       </aside>
     </main>
-    <article></article>
     <footer></footer>
   </body>
   <script src="index.js"></script>
