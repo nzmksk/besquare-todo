@@ -89,8 +89,50 @@
           <ul id="idTodoList"></ul>
         </section>
       </section>
-      <aside>
-        <h2>Aside</h2>
+      <aside id="idTaskDetails">
+        <section class="details-section">
+          <form>
+            <label for="idUpdateTaskList">Task List</label>
+            <input
+              id="idUpdateTaskList"
+              list="idUpdateTaskLists"
+              maxlength="32"
+            />
+            <datalist id="idUpdateTaskLists">
+              <option value="General" selected>General</option>
+            </datalist>
+            <label for="idUpdateTitle">Title</label>
+            <input type="text" id="idUpdateTitle" maxlength="32" />
+            <label for="idUpdateDescription">Notes</label>
+            <textarea id="idUpdateDescription" cols="30" rows="5"></textarea>
+            <p id="idDateCreated">Date created:</p>
+            <label for="idUpdateDueDate">Due Date</label>
+            <input type="date" id="idUpdateDueDate" />
+            <fieldset>
+              <legend>Priority</legend>
+              <label for="idLow1">Low</label>
+              <input type="radio" id="idLow1" name="priority" value="Low" />
+              <label for="idMedium1">Medium</label>
+              <input
+                type="radio"
+                id="idMedium1"
+                name="priority"
+                value="Medium"
+              />
+              <label for="idHigh1">High</label>
+              <input type="radio" id="idHigh1" name="priority" value="High" />
+              <label for="idUrgent1">Urgent</label>
+              <input
+                type="radio"
+                id="idUrgent1"
+                name="priority"
+                value="Urgent"
+              />
+            </fieldset>
+            <button type="button">Delete</button>
+            <button type="button">Update</button>
+          </form>
+        </section>
       </aside>
     </main>
     <footer></footer>

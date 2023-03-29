@@ -1,0 +1,4 @@
+@mixin no-shrink {
+    flex-grow: 2.5;
+    flex-shrink: 0;
+}
